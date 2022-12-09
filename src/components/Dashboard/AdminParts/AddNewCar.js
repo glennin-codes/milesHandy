@@ -130,7 +130,7 @@ history.push("/login")
                             {/* car mileage input */}
                             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                                 <Icon className="fas fa-road"></Icon>
-                                <TextField fullWidth required label="Mileage"
+                                <TextField fullWidth label="Mileage"
                                     InputProps={{
                                         endAdornment: <InputAdornment position="start">km</InputAdornment>,
                                     }}
@@ -240,7 +240,7 @@ history.push("/login")
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
                             <Button type="submit" variant="outlined"
-                                disabled={currentUser?.email !== 'kariukiamschel9@gmail.com'}>Add to Database</Button>
+                                disabled={currentUser?.email !== 'milesmotorssocialmedia@gmail.com'}>Add to Database</Button>
                         </Grid>
 
                          <Grid item xs={12} sx={{ textAlign: 'right' }}>

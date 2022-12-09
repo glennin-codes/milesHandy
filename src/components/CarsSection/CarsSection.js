@@ -25,7 +25,6 @@ const {type}= useSelector((state)=>state.type)
             }
         })
         setCars(data)
-        console.log("dataNumber", data)
     }
         FetchCars()   
     }, [dataAmount,search,type])

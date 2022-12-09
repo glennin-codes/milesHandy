@@ -10,7 +10,7 @@ export const SendEmail = async ({
 }) => {
   try {
     const datas = { FirstName, LastName, email, number, message };
-    let res = await axios.post(`https://milescontact.herokuapp.com/send`, datas);
+    let res = await axios.post(`https://contactmilesapi.onrender.com/send`, datas);
     if (res) {
       setSend(res.data);
     }

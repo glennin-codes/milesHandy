@@ -72,8 +72,6 @@ export default function ImageCarousel() {
     lazyLoad: true,
   };
 
-  console.log(images);
-
   return (
     <div className="container">
       <button onClick={() => carousel.current.slickGoTo(0)} className="button">

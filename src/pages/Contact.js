@@ -64,7 +64,7 @@ const Contact = () => {
         <Typography variant="h4" fontSize="bold">
           Contact Us
         </Typography>
-        <Typography>Got any question? Send as a message below.</Typography>
+        <Typography>Got any question? Send us a message below.</Typography>
         <form onSubmit={onSubmit}>
           <Box
             sx={{

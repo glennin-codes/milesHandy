@@ -104,7 +104,7 @@ setError(`failed to login!${error}`)
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/update" variant="body2">
+                <Link href="/reset" variant="body2">
                   forgot password?
                 </Link>
               </Grid>
