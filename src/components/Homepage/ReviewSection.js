@@ -48,7 +48,7 @@ const ReviewSection = () => {
     };
 
     React.useEffect(() => {
-        axios.get(`https://milesmotors.herokuapp.com/cars/all`)
+        axios.get(`https://milesbackend.onrender.com/cars/all`)
             .then((data ) => setReviews(data))
             .catch(err => console.log(err))
     }, [])
