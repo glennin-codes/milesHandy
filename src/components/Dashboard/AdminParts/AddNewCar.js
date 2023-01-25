@@ -258,8 +258,8 @@ history.push("/login")
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
                        <Typography >
-                       
                                 {status && <Alert severity="success">{status}</Alert>}
+                                 {error&& <Alert severity="error">{error}</Alert>}
                        </Typography>
                         </Grid>
 
