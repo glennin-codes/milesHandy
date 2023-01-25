@@ -56,7 +56,7 @@ history.push("/login")
             .catch(err => {
           setStatus(`car not added, there was an error`)
               showSnackbar() // show notification popup containing status
-            console.log(err);
+            
             })
         
     }
