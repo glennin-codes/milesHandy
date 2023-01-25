@@ -43,6 +43,7 @@ history.push("/login")
     }
     // add new car in database
     const handleSubmit = (event) => {
+        event.preventDefault()
         const newCarInfo = { ...values, carType, fuel }
         axios.post('https://milesbackend.onrender.com/car', newCarInfo)
             .then(({ data }) => {
@@ -54,9 +55,9 @@ history.push("/login")
             })
             .catch(err => {
           setStatus(`car not added, there was an error`)
-//                 showSnackbar() // show notification popup containing status
+              showSnackbar() // show notification popup containing status
             })
-        event.preventDefault()
+        
     }
     return (
         <Box>
