@@ -114,7 +114,7 @@ history.push("/login")
                                         <MenuItem value={'Audi'}>Audi</MenuItem>
                                         <MenuItem value={'Mazda'}>Mazda</MenuItem>
                                         <MenuItem value={'Ford'}>Ford</MenuItem>
-                                           <MenuItem value={'Nissan'}>Ford</MenuItem>
+                                           <MenuItem value={'Nissan'}>Nissan</MenuItem>
                                             <MenuItem value={'Suzuki'}>Suzuki</MenuItem>
                                             <MenuItem value={"Volkswagen"}>Volks Wagen</MenuItem>
                                             <MenuItem value={"Honda"}>Honda</MenuItem>
@@ -258,7 +258,7 @@ history.push("/login")
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
                        <Typography >
-                       {/* <div>{message}</div> */}
+                       
                                 {status && <Alert severity="success">{status}</Alert>}
                        </Typography>
                         </Grid>
