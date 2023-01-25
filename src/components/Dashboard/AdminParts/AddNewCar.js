@@ -49,13 +49,13 @@ history.push("/login")
             .then(({ data }) => {
                 if (data.code===1) {
                   setStatus(`car added succesfully`)
-                    showSnackbar()
+                    // showSnackbar()
                     event.target.reset()
                 }
             })
             .catch(err => {
-          setStatus(`car not added, there was an error`)
-              showSnackbar() // show notification popup containing status
+          setStatus(`car not added, there was an error`);
+            //   showSnackbar() // show notification popup containing status
             
             });
         
@@ -254,6 +254,12 @@ history.push("/login")
                        onClick={handleLogout}
                         component={Button} >
                        Logout
+                       </Typography>
+                        </Grid>
+                        <Grid item xs={12} sx={{ textAlign: 'right' }}>
+                       <Typography >
+                       {/* <div>{message}</div> */}
+                                {status && <Alert severity="success">{status}</Alert>}
                        </Typography>
                         </Grid>
 
