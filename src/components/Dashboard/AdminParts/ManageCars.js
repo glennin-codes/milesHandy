@@ -72,7 +72,7 @@ fetchCars()
            
               <TableCell  sx={{width:"10vw"}}  >
                 <Typography component={Button}
-//                 disabled={currentUser?.email!=='milesmotorssocialmedia@gmail.com'}
+                disabled={currentUser?.email!=='milesmotorssocialmedia@gmail.com'}
                 onClick={
                   ()=>deleteCar(carID)
                 }
