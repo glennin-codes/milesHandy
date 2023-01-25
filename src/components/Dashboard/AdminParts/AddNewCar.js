@@ -53,11 +53,11 @@ history.push("/login")
                     event.target.reset()
                 }
             })
-            .catch(err) {
+            .catch(err => {
           setStatus(`car not added, there was an error`)
               showSnackbar() // show notification popup containing status
             console.log(err);
-            }
+            })
         
     }
     return (
