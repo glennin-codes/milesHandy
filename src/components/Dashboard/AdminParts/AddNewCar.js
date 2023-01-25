@@ -239,8 +239,7 @@ history.push("/login")
                                 onChange={handleValueChange('description')} />
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
-                            <Button type="submit" variant="outlined"
-                                disabled={currentUser?.email !== 'milesmotorssocialmedia@gmail.com'}>Add to Database</Button>
+                            <Button type="submit" variant="outlined">Add to Database</Button>
                         </Grid>
 
                          <Grid item xs={12} sx={{ textAlign: 'right' }}>
