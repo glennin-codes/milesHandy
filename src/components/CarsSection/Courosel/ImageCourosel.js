@@ -11,7 +11,18 @@ export default function ImageCarousel() {
 
   const [carImages, setCarImages] = useState(null);
   // destructure car details
-  const { carImg, image2, image3, image4, image5,image6,image7,image8,image9,image10 } = carImages ? carImages : {};
+  const {
+    carImg,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+  } = carImages ? carImages : {};
 
   useEffect(() => {
     axios
