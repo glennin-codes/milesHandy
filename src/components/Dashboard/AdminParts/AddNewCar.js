@@ -44,7 +44,7 @@ history.push("/login")
     // add new car in database
     const handleSubmit = (event) => {
         const newCarInfo = { ...values, carType, fuel }
-        axios.post('https://milesmotors.herokuapp.com/car', newCarInfo)
+        axios.post('https://milesbackend.onrender.com/car', newCarInfo)
             .then(({ data }) => {
                 if (data.code===1) {
                   setStatus(`car added succesfully`)
