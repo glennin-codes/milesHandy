@@ -39,7 +39,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://milesmotors.herokuapp.com/car/${carID}`)
+      .get(`https://milesbackend.onrender.com/car/${carID}`)
       .then(({ data }) => setCarDetails(data.data))
       .catch((err) => console.log(err));
   }, [carID]);

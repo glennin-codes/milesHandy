@@ -27,7 +27,7 @@ const {type}= useSelector((state)=>state.type)
         setCars(data)
         }
         FetchCars()   
-    }, [dataAmount,search,type])
+    }, [dataAmount,search,type]);
 
 
 

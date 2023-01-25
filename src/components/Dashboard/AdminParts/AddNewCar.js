@@ -57,7 +57,7 @@ history.push("/login")
           setStatus(`car not added, there was an error`)
               showSnackbar() // show notification popup containing status
             
-            })
+            });
         
     }
     return (
