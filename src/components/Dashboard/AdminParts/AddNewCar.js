@@ -396,7 +396,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 variant="outlined"
                 disabled={
                   currentUser?.email !== "milesmotorssocialmedia@gmail.com"
-                }
+                } //disbling add to database
               >
                 Add to Database
               </Button>
