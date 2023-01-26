@@ -150,7 +150,24 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                     <MenuItem value={"Suzuki"}>Suzuki</MenuItem>
                     <MenuItem value={"Volkswagen"}>Volks Wagen</MenuItem>
                     <MenuItem value={"Honda"}>Honda</MenuItem>
+                    <MenuItem value={"Isuzu"}>Isuzu</MenuItem>
+                    <MenuItem value={"Land Rover"}>Land Rover</MenuItem>
+                    <MenuItem value={"Range Rover"}>Range Rover</MenuItem>
+                    <MenuItem value={" Lexus"}>Lexus</MenuItem>
+                    <MenuItem value={"Daihatsu"}>Daihatsu</MenuItem>
+                    <MenuItem value={"Jeep"}>Jeep</MenuItem>
+                    <MenuItem value={"BMW"}>BMW</MenuItem>
+                    <MenuItem value={"Porsche"}>Porsche</MenuItem>
+                    <MenuItem value={"Honda"}>Honda</MenuItem>
+                    <MenuItem value={"Hyundai"}>Hyundai</MenuItem>
                     <MenuItem value={"Mitsubishi"}>Mitsubishi</MenuItem>
+                    <MenuItem value={" KIA"}> KIA</MenuItem>
+                    <MenuItem value={"Peugeot"}>Peugeot</MenuItem>
+                    <MenuItem value={"Renault"}>Renault</MenuItem>
+                    <MenuItem value={"Mahindra"}>Mahindra</MenuItem>
+                    <MenuItem value={"Chevrolet"}>Chevrolet</MenuItem>
+                    <MenuItem value={"Volvo"}>Volvo</MenuItem>
+                    <MenuItem value={"Scania"}> Scania</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
