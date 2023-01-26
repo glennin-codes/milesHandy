@@ -135,7 +135,8 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 <Icon className="fas fa-car"></Icon>
                 <FormControl variant="standard" fullWidth>
                   <InputLabel>Car Brand</InputLabel>
-                  <Select
+                  <Select 
+                     
                     fullWidth
                     required
                     value={carType}
