@@ -2,6 +2,7 @@ import { Container, Divider, Grid, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { FacebookRounded, PhoneRounded, Twitter } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -116,7 +117,7 @@ const Footer = () => {
             }}
           >
             <Typography variant="h6">About</Typography>
-            <Link href="#">About miles Motors</Link>
+            <NavLink  to='/about' >About miles Motors</NavLink>
             <Link href="#">Investor relations</Link>
             <Link href="#">Terms & conditions</Link>
             <Link href="https://www.google.com/maps/place/1%C2%B017'44.2%22S+36%C2%B048'40.9%22E/@-1.295612,36.8091651,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x7e83ee3915a098ec!8m2!3d-1.295612!4d36.8113538?hl=en" target="_blank">
