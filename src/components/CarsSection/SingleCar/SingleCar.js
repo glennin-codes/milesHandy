@@ -26,9 +26,27 @@ import { useRef } from "react";
 // }
 const SingleCar = ({ carInfo,isLast}) => {
   const imageRef=useRef();
+  const [carImgUrl, setImgUrl] = useState("");
   useEffect(()=>{
-     
-  },[])
+     if (!imageRef?.current) return;
+     const observer=new IntersectionObserver(([entry]) => {
+        if (isLast && entry.isIntersecting ){
+          console.log('last one is on view port');
+          observer.unobserve(entry.target);
+        }
+        if (entry.isIntersecting) 
+        {
+          setImgUrl(entry.target.dataset.src)
+          
+        }
+        
+        
+     },{
+         rootMargin:'600px',
+          
+     });
+     observer.observe(imageRef.current)
+  },[imageRef,isLast])
 
   const {
     carID,
@@ -82,6 +100,7 @@ const SingleCar = ({ carInfo,isLast}) => {
         <Box sx={{ display: "flex", flexDirection: "column"}}>
         <Card sx={{ width: 300 }}>
           <CardActionArea>
+            <div style={{minHeight:300}}>
             < LazyLoadImage
               // component="img"
               // height=200
@@ -91,10 +110,11 @@ const SingleCar = ({ carInfo,isLast}) => {
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
-              src={carImg}
+              src={carImgUrl}
               alt="car"
               ref={imageRef} 
             />
+            </div>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" color="red">
                Ksh {numberWithCommas(price)}
