@@ -96,7 +96,7 @@ const loadImages=(image)=>{
                 fontWeight={700}
                 textSize='1.5rem'
               >
-                {carName}
+                 {Icon} {carName}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 <span style={{ backgroundColor: "#EEF0F8" }}>
