@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { alpha, Box, styled } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -19,7 +19,10 @@ const Icon = styled("i")(({ theme }) => ({
   fontSize: "22px",
 }));
 
-
+const config={
+  rootMargin:'0px 0px 50px 0px',
+  threshold:0
+}
 const SingleCar = ({ carInfo }) => {
   const {
     carID,
@@ -39,6 +42,30 @@ const SingleCar = ({ carInfo }) => {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  useEffect(()=>{
+     let observer=new window.IntersectionObserver((entries,self)=>{
+      entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+          loadImages(entry.target)
+          self.unobserve(entry.target);
+        }
+        
+      })
+    },config)   
+     const  imgs= document.querySelectorAll('[dataset.src]');
+    imgs.forEach(img=>{
+       observer.observe(img);
+    });
+    return ()=>{
+      imgs.forEach(img=>{
+        observer.unobserve(img);
+      })
+    }
+
+  },[])
+const loadImages=(image)=>{
+  image.src = image.dataset.src
+}
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} sx={{display: "flex", justifyContent: "center"}}>
