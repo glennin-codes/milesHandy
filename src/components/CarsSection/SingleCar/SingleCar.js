@@ -33,6 +33,7 @@ const SingleCar = ({ carInfo,isLast}) => {
         if (isLast && entry.isIntersecting ){
           console.log('last one is on view port');
           observer.unobserve(entry.target);
+          observer.observe(imageRef.current)
         }
         if (entry.isIntersecting) 
         {
@@ -42,10 +43,10 @@ const SingleCar = ({ carInfo,isLast}) => {
         
         
      },{
-         rootMargin:'600px',
+         rootMargin:'100px',
           
      });
-     observer.observe(imageRef.current)
+    
   },[imageRef,isLast])
 
   const {
