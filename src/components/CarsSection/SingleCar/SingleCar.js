@@ -11,6 +11,8 @@ import {
 import { alpha, Box, styled } from "@mui/system";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Icon = styled("i")(({ theme }) => ({
   color: theme.palette.primary.light,
@@ -44,12 +46,16 @@ const SingleCar = ({ carInfo }) => {
         <Box sx={{ display: "flex", flexDirection: "column"}}>
         <Card sx={{ width: 300 }}>
           <CardActionArea>
-            <CardMedia
-              component="img"
-              height="200"
-              width="100%"
-              sx={{ objectFit: "fill"}}
-              image={carImg}
+            < LazyLoadImage
+              // component="img"
+              // height=200
+              // width=100%
+              // sx={{ objectFit: "fill"}}
+              style={{height:200,
+                width:'100%',objectFit: "fill"}}
+                effect="blur"
+                placeholderSrc={carImg}
+              src={carImg}
               alt="car"
             />
             <CardContent>
