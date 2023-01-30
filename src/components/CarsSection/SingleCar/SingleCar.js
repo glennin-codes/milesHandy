@@ -82,7 +82,8 @@ const loadImages=(image)=>{
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
-              src={carImg}
+              src=''
+              data-src={carImg}
               alt="car"
             />
             <CardContent>
