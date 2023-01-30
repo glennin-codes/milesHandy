@@ -20,7 +20,7 @@ const Icon = styled("i")(({ theme }) => ({
 }));
 
 const config={
-  rootMargin:'0px 0px 50px 0px',
+  rootMargin:'0px 0px 0px 0px',
   threshold:0
 }
 const SingleCar = ({ carInfo }) => {
@@ -50,7 +50,7 @@ const SingleCar = ({ carInfo }) => {
           self.unobserve(entry.target);
         }
         
-      })
+      });
     },config)   
      const  imgs= document.querySelectorAll('[dataset.src]');
     imgs.forEach(img=>{
@@ -82,7 +82,7 @@ const loadImages=(image)=>{
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
-              src=''
+              src={""}
               data-src={carImg}
               alt="car"
             />
