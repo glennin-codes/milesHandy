@@ -18,12 +18,13 @@ const Icon = styled("i")(({ theme }) => ({
   color: theme.palette.primary.light,
   fontSize: "22px",
 }));
-
+import { useRef } from "react";
 const config={
   rootMargin:'0px 0px 0px 0px',
   threshold:0
 }
-const SingleCar = ({ carInfo }) => {
+const SingleCar = ({ carInfo,isLast}) => {
+
   const {
     carID,
     carImg,
@@ -42,30 +43,33 @@ const SingleCar = ({ carInfo }) => {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  useEffect(()=>{
-     let observer=new window.IntersectionObserver((entries,self)=>{
-      entries.forEach((entry)=>{
-        if(entry.isIntersecting){
-          loadImages(entry.target)
-          self.unobserve(entry.target);
-        }
-        
-      });
-    },config)   
-     const  imgs= document.querySelectorAll('[dataset.src]');
-    imgs.forEach(img=>{
-       observer.observe(img);
-    });
-    return ()=>{
-      imgs.forEach(img=>{
-        observer.unobserve(img);
-      })
-    }
 
-  },[])
-const loadImages=(image)=>{
-  image.src = image.dataset.src
-}
+
+
+//   useEffect(()=>{
+//      let observer=new window.IntersectionObserver((entries,self)=>{
+//       entries.forEach((entry)=>{
+//         if(entry.isIntersecting){
+//           loadImages(entry.target)
+//           self.unobserve(entry.target);
+//         }
+        
+//       });
+//     },config)   
+//      const  imgs= document.querySelectorAll('[dataset.src]');
+//     imgs.forEach(img=>{
+//        observer.observe(img);
+//     });
+//     return ()=>{
+//       imgs.forEach(img=>{
+//         observer.unobserve(img);
+//       })
+//     }
+
+//   },[])
+// const loadImages=(image)=>{
+//   image.src = image.dataset.src
+// }
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} sx={{display: "flex", justifyContent: "center"}}>
