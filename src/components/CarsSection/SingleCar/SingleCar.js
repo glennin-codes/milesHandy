@@ -19,11 +19,16 @@ const Icon = styled("i")(({ theme }) => ({
   fontSize: "22px",
 }));
 import { useRef } from "react";
-const config={
-  rootMargin:'0px 0px 0px 0px',
-  threshold:0
-}
+
+// const config={
+//   rootMargin:'0px 0px 0px 0px',
+//   threshold:0
+// }
 const SingleCar = ({ carInfo,isLast}) => {
+  const imageRef=useRef();
+  useEffect(()=>{
+     
+  },[])
 
   const {
     carID,
@@ -86,9 +91,9 @@ const SingleCar = ({ carInfo,isLast}) => {
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
-              src={""}
-              data-src={carImg}
+              src={carImg}
               alt="car"
+              ref={imageRef} 
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" color="red">
