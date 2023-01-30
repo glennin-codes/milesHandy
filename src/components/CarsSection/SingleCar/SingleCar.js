@@ -94,6 +94,7 @@ const loadImages=(image)=>{
                 variant="body2"
                 color="text.secondary"
                 fontWeight={700}
+                textSize='1.5rem'
               >
                 {carName}
               </Typography>
