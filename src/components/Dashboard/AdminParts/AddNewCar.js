@@ -404,7 +404,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
             <Paper
         style={{
           cursor: 'pointer',
-          background: 'red',//fafafa
+          background: 'fafafa',
           color: '#bdbdbd',
           border: '1px dashed #ccc',
           '&:hover': { border: '1px solid #ccc' ,
@@ -420,7 +420,10 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           {isDragActive ? (
             <p style={{ color: 'green' }}>Drop the files here...</p>
           ) : (
+            <>
             <p>Drag 'n' Drop some files here, or click to select files</p>
+            <Icon className="fas fa-image" style={{fontSize: "40px",}}>
+              </Icon></>
           )}
           <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em>
         </div>
