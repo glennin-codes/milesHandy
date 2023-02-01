@@ -70,30 +70,7 @@ const SingleCar = ({ carInfo,isLast}) => {
 
 
 
-//   useEffect(()=>{
-//      let observer=new window.IntersectionObserver((entries,self)=>{
-//       entries.forEach((entry)=>{
-//         if(entry.isIntersecting){
-//           loadImages(entry.target)
-//           self.unobserve(entry.target);
-//         }
-        
-//       });
-//     },config)   
-//      const  imgs= document.querySelectorAll('[dataset.src]');
-//     imgs.forEach(img=>{
-//        observer.observe(img);
-//     });
-//     return ()=>{
-//       imgs.forEach(img=>{
-//         observer.unobserve(img);
-//       })
-//     }
 
-//   },[])
-// const loadImages=(image)=>{
-//   image.src = image.dataset.src
-// }
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} sx={{display: "flex", justifyContent: "center"}}>
