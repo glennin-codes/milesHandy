@@ -426,7 +426,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
             
           )}
           <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> <br/>
-             <Icon className="fas fa-image" style={{fontSize: "40px",textAlign='center'}}>
+             <Icon className="fas fa-image" style={{fontSize: "40px",textAlign:'center'}}>
               </Icon>
         </div>
       </Paper>
