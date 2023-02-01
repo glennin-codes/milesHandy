@@ -410,9 +410,10 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           '&:hover': { border: '1px solid #ccc' ,
          
         },
-        height:'200px'
+        height:'200px',
+        display: "flex", alignItems: "flex-end"
         }}
-        elevation={6}
+        // elevation={6}
         >
 
         <div style={{ padding: '16px' }} {...getRootProps()}>
