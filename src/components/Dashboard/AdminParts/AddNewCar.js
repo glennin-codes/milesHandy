@@ -401,6 +401,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 />
               </Box>
             </Grid>
+            <Grid xs={12}>
             <Paper
         style={{
           cursor: 'pointer',
@@ -424,12 +425,12 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
             <p>Drag 'n' Drop some files here, or click to select files</p>
             
           )}
-          <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em>
-             <Icon className="fas fa-image" style={{fontSize: "40px",}}>
+          <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> <br/>
+             <Icon className="fas fa-image" style={{fontSize: "40px",textAlign='center'}}>
               </Icon>
         </div>
       </Paper>
-         
+         </Grid>
             <Grid item xs={12}>
               {/* car description textarea */}
               <TextField
