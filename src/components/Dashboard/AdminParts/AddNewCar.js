@@ -402,7 +402,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
               </Box>
             </Grid>
             <Paper
-        sx={{
+        style={}{{
           cursor: 'pointer',
           background: 'red',//fafafa
           color: '#bdbdbd',
