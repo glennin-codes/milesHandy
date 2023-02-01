@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import axios from "axios";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import useAuth from "../AdminParts/../../../others/useAuthContext";
 import { useHistory } from "react-router-dom";
