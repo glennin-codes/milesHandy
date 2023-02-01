@@ -32,6 +32,10 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const history = useHistory();
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { 'image/*': [] },
+  });
   async function handleLogout() {
     setError("");
     try {
@@ -406,6 +410,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
         }}
         elevation={6}
         >
+
         <div style={{ padding: '16px' }} {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
@@ -416,6 +421,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em>
         </div>
       </Paper>
+         
             <Grid item xs={12}>
               {/* car description textarea */}
               <TextField
