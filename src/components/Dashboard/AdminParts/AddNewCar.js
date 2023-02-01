@@ -401,7 +401,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 />
               </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid item  xs={12}>
             <Paper
         style={{
           cursor: 'pointer',
