@@ -33,9 +33,34 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const history = useHistory();
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
+  const {images,setImages}=React.useState([])
+  const onDrop=useCallback ((acceptedFiles,rejectedFiles) =>{
+    if(rejectedFiles && rejectedFiles.length>0){
+      setError(`${rejectedFiles.length}>2 ? Images Files are not supported,kindly upload jpeg,jpg and png only!:Image File is not supported,kindly upload jpeg,jpg and png only`);
+      return;
+    }   
+    // if (acceptedFiles <5 ){
+    //   setError(`Please upload at least 5 images`);
+    //   return;
+    // } 
+     acceptedFiles.forEach(file => {
+         const reader=new FileReader();
+         reader.onload=()=>{
+          setImages(prevImages => [...prevImages, reader.result]);
+         } 
+       reader.readAsDataURL(file)
+       
+     });
+
+
+     
+
+     
+  });
+  
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    // onDrop,
-    accept: { 'image/*': [] },
+    onDrop,
+    accept: 'image/jpeg,image/jpg,image/png',
   });
   async function handleLogout() {
     setError("");
