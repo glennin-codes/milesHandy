@@ -1,7 +1,8 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import * as React from 'react';
+import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";

@@ -1,7 +1,8 @@
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
+import  { useEffect, useState } from 'react';
 import LoadingSpinner from '../Common/LoadingSpinner/LoadingSpinner';
 import SingleCar from './SingleCar/SingleCar';
 import {   useSelector} from 'react-redux'
