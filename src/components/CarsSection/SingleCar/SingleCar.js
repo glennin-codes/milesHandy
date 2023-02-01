@@ -27,27 +27,7 @@ const Icon = styled("i")(({ theme }) => ({
 const SingleCar = ({ carInfo,isLast}) => {
   const imageRef=useRef();
   const [carImgUrl, setImgUrl] = useState("");
-  useEffect(()=>{
-     if (!imageRef?.current) return;
-     const observer=new IntersectionObserver(([entry]) => {
-        if (isLast && entry.isIntersecting ){
-          console.log('last one is on view port');
-          observer.unobserve(entry.target);
-          observer.observe(imageRef.current)
-        }
-        if (entry.isIntersecting) 
-        {
-          setImgUrl(entry.target.dataset.src)
-          
-        }
-        
-        
-     },{
-         rootMargin:'100px',
-          
-     });
-    
-  },[imageRef,isLast])
+  
 
   const {
     carID,
@@ -88,7 +68,7 @@ const SingleCar = ({ carInfo,isLast}) => {
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
-              src={carImgUrl}
+              src={carImg}
               alt="car"
               ref={imageRef} 
             />

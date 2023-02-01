@@ -33,7 +33,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
+    // onDrop,
     accept: { 'image/*': [] },
   });
   async function handleLogout() {
