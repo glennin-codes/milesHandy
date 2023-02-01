@@ -13,13 +13,13 @@ import React,{useEffect,useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useRef } from "react";
-const Icon = styled("i")(({ theme }) => ({
-  color: theme.palette.primary.light,
-  fontSize: "22px",
-}));
 
-const SingleCar = ({ carInfo,isLast}) => {
+// const Icon = styled("i")(({ theme }) => ({
+//   color: theme.palette.primary.light,
+//   fontSize: "22px",
+// }));
+
+const SingleCar = ({ carInfo}) => {
   // const imageRef=useRef();
   // const [carImgUrl, setImgUrl] = useState("");
   
@@ -65,7 +65,7 @@ const SingleCar = ({ carInfo,isLast}) => {
                 placeholderSrc={carImg}
               src={carImg}
               alt="car"
-              ref={imageRef} 
+             
             />
             </div>
             <CardContent>
@@ -78,7 +78,7 @@ const SingleCar = ({ carInfo,isLast}) => {
                 fontWeight={700}
                 textSize='1.5rem'
               >
-                 {Icon} {carName}
+                  {carName}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 <span style={{ backgroundColor: "#EEF0F8" }}>

@@ -17,7 +17,7 @@ import React,{useCallback,useEffect} from 'react';
 import { Link } from "react-router-dom";
 import useAuth from "../AdminParts/../../../others/useAuthContext";
 import { useHistory } from "react-router-dom";
-import { useDropzone } from 'react-dropzone';
+import { useDropzone } from "react-dropzone";
 
 // styled component for font awesome icon
 const Icon = styled("i")(({ theme }) => ({
