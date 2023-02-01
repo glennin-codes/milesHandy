@@ -407,7 +407,10 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           background: '#fafafa',
           color: '#bdbdbd',
           border: '1px dashed #ccc',
-          '&:hover': { border: '1px solid #ccc' },
+          '&:hover': { border: '1px solid #ccc' ,
+         
+        },
+        height:'200px'
         }}
         elevation={6}
         >
