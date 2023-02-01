@@ -404,6 +404,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           border: '1px dashed #ccc',
           '&:hover': { border: '1px solid #ccc' },
         }}
+        elevation={6}
         >
         <div style={{ padding: '16px' }} {...getRootProps()}>
           <input {...getInputProps()} />
@@ -433,9 +434,9 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
               <Button
                 type="submit"
                 variant="outlined"
-                disabled={
-                  currentUser?.email !== "milesmotorssocialmedia@gmail.com"
-                } //disbling add to database
+                // disabled={
+                //   currentUser?.email !== "milesmotorssocialmedia@gmail.com"
+                // } //disbling add to database
               >
                 Add to Database
               </Button>
