@@ -404,7 +404,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
             <Paper
         sx={{
           cursor: 'pointer',
-          background: '#fafafa',
+          background: 'red',//fafafa
           color: '#bdbdbd',
           border: '1px dashed #ccc',
           '&:hover': { border: '1px solid #ccc' ,
