@@ -19,14 +19,9 @@ const Icon = styled("i")(({ theme }) => ({
   fontSize: "22px",
 }));
 
-
-// const config={
-//   rootMargin:'0px 0px 0px 0px',
-//   threshold:0
-// }
 const SingleCar = ({ carInfo,isLast}) => {
-  const imageRef=useRef();
-  const [carImgUrl, setImgUrl] = useState("");
+  // const imageRef=useRef();
+  // const [carImgUrl, setImgUrl] = useState("");
   
 
   const {
