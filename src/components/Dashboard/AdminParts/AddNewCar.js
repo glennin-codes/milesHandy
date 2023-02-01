@@ -412,11 +412,12 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
         },
         height:'200px',
         display: "flex", alignItems: "flex-end"
+        
         }}
         // elevation={6}
         >
 
-        <div style={{ padding: '16px' }} {...getRootProps()}>
+        <div style={{ padding: '16px' ,textAlign:'center'}} {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
             <p style={{ color: 'green' }}>Drop the files here...</p>
