@@ -15,7 +15,7 @@ import {
 import { Box, styled } from "@mui/system";
 import axios from "axios";
 import * as React from 'react';
-import {useCallback,useEffect} from 'react';
+import {useCallback,useEffect,useState} from 'react';
 import { Link } from "react-router-dom";
 import useAuth from "../AdminParts/../../../others/useAuthContext";
 import { useHistory } from "react-router-dom";
@@ -34,7 +34,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const history = useHistory();
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
-  const {images,setImages}=React.useState([]);
+  const {images,setImages}=useState([]);
 
 
   const onDrop =useCallback ((acceptedFiles,rejectedFiles) =>{
