@@ -35,7 +35,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
   const {images,setImages}=React.useState([])
-  const onDrop=useCallback ((acceptedFiles,rejectedFiles) =>{
+  const onDrop =useCallback ((acceptedFiles,rejectedFiles) =>{
     if (rejectedFiles && rejectedFiles.length > 0) {
       let errorMessage = "";
       
@@ -66,7 +66,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
      
 
      
-  },[]);
+  },[setImages]);
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -92,7 +92,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   // add new car in database
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newCarInfo = { ...values, carType, fuel ,images};
+    const newCarInfo = { ...values, carType, fuel , images};
     axios
       .post("https://milesbackend.onrender.com/car", newCarInfo)
       .then(({ data,res }) => {
