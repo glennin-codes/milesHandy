@@ -9,7 +9,8 @@ import {
   Select,
   TextField,
   Typography,
-  Paper
+  Paper,
+  imageListClasses
 } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import axios from "axios";
@@ -49,7 +50,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
           setImages(prevImages => [...prevImages, reader.result]);
          } 
        reader.readAsDataURL(file)
-       
+
      });
 
 
@@ -82,15 +83,21 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   // add new car in database
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newCarInfo = { ...values, carType, fuel };
+    const newCarInfo = { ...values, carType, fuel ,images};
     axios
       .post("https://milesbackend.onrender.com/car", newCarInfo)
-      .then(({ data }) => {
+      .then(({ data,res }) => {
+        if(res.status===200){
+          setStatus(res.data.message);
+        }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
+          
+
           // showSnackbar()
           event.target.reset();
         }
+       throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
@@ -286,147 +293,9 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 />
               </Box>
             </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Img URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("carImg")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 2 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image2")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 3 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image3")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 4 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image4")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 5 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image5")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 6 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image6")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 7 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image7")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 8 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image8")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 9 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image9")}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              {/* car image url */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Icon className="fas fa-image"></Icon>
-                <TextField
-                  fullWidth
-                  label="Image 10 URL"
-                  variant="standard"
-                  required
-                  type="url"
-                  onChange={handleValueChange("image10")}
-                />
-              </Box>
-            </Grid>
+            
             <Grid item  xs={12}>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
             <Paper
         style={{
           cursor: 'pointer',
@@ -455,6 +324,13 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
               </Icon>
         </div>
       </Paper>
+      </Box>
+     
+         </Grid>
+         <Grid item xs={12}>
+            {images.length>0 && <div>
+              {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
+              </div>}
          </Grid>
             <Grid item xs={12}>
               {/* car description textarea */}
