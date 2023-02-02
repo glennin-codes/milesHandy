@@ -55,6 +55,8 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   //   //   return;
   //   // } 
   //  else{
+    console.log('accepted',acceptedFiles);
+    console.log('rejected',rejectedFiles);
     acceptedFiles.forEach(file => {
          const reader= new FileReader();
          reader.onload=()=>{
