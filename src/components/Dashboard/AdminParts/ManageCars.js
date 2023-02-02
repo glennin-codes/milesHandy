@@ -22,7 +22,7 @@ export default function ManageCars() {
     const[success,setSuccess]=React.useState("")
     useEffect(()=>{
 const fetchCars= async ()=>{
-const {data}=await axios.get("https://milesbackend.onrender.com/cars/all")
+const {data}=await axios.get("http://localhost:8000/cars/all")
 setCars(data)
 }
 fetchCars()
@@ -32,7 +32,7 @@ fetchCars()
           setSuccess("")
 
              alert(`are you sure you want to delete ${carID},this action is irreversible!`)
-   await axios.delete(`https://milesbackend.onrender.com/car/${carID}`)
+   await axios.delete(`http://localhost:8000/car/${carID}`)
    setSuccess(`success! car with id of ${carID} deleted`)
   
         }
