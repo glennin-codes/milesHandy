@@ -140,7 +140,7 @@ const [images, setImages] = useState([]);
     acceptedFiles.forEach(file => {
          const reader =  new FileReader();
           reader.readAsDataURL(file);
-         reader.onload = () => {
+         reader.onloadend = () => {
           const binaryStr = reader.result;
           console.log(binaryStr);
           setImages((prevState)=>[...prevState,binaryStr]);
