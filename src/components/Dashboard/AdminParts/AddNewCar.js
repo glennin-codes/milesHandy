@@ -34,9 +34,89 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const history = useHistory();
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
-  const {images,setImages}=useState([]);
+  // const {images,setImages}=useState([]);
+  // const [images,setImages] = useState([]);
+    
+  //how to converte multiple images to base64 in react? 
+const [images, setImages] = useState([]);
+
+// const formatImage = async() => {
+//   try {
+//     for (let i = 0; i < e.target.files.length; i++) {
+//       const reader = new FileReader();
+//       reader.readAsDataURL(e.target.files[i]);
+//       reader.onload = (readerEvent) => {
+//         images.push(readerEvent.target ? .result);
+//       };
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// <input type="file" multiple onChange={formatImage} />
+
+// const addImage = async() => {
+//   try {
+//     Promise.all(
+//       images.map(
+//         async(file: any) =>
+//         await addDoc(collection(db, "images"), {
+//           image: file,
+//           date: Timestamp.now(),
+//         })
+//       )
+//     );
+
+//     setImages([]);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 
+
+// //Source: https://stackoverflow.com/questions/73092506
+
+
+
+
+
+
+
+
+
+  // const getBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     console.log(file);
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (err) => reject(err);
+  //   });
+
+  // const submitImages = async () => {
+  //   const imageInputs = document.querySelectorAll("input");
+  //   const images = await Promise.all(
+  //     [...imageInputs].map((imageInput) =>
+  //       imageInput?.files?.[0] ? getBase64(imageInput.files[0]) : null
+  //     )
+  //   );
+  //   console.log(images);
+  // };
+
+
+
+
+//Source: https://stackoverflow.com/questions/71964404
+
+
+
+
+
+
+
+ 
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
   //   if (rejectedFiles && rejectedFiles.length > 0) {
   //     let errorMessage = "";
@@ -59,17 +139,14 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
     console.log('rejected',rejectedFiles);
     acceptedFiles.forEach(file => {
          const reader =  new FileReader();
+          reader.readAsDataURL(file);
          reader.onload = () => {
           const binaryStr = reader.result;
           console.log(binaryStr);
-          setImages([...images,binaryStr]);
+          setImages((prevState)=>[...prevState,binaryStr]);
         };
      });
-  //  }
-
-     
-
-     
+  //  }   
   },[]);
  
    useEffect(()=>{
