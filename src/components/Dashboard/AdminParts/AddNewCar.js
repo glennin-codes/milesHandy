@@ -58,12 +58,12 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
     console.log('accepted',acceptedFiles);
     console.log('rejected',rejectedFiles);
     acceptedFiles.forEach(file => {
-         const reader= new FileReader();
-         reader.onload=()=>{
-          setImages(prevImages => [...prevImages, reader.result]);
-         } 
-       reader.readAsDataURL(file)
-
+         const reader =  new FileReader();
+         reader.onload = () => {
+          const binaryStr = reader.result;
+          console.log(binaryStr);
+          setImages([...images,binaryStr]);
+        };
      });
   //  }
 
