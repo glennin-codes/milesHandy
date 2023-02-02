@@ -179,7 +179,7 @@ const [images, setImages] = useState([]);
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel , images};
     axios
-      .post("https://milesbackend.onrender.com/car", newCarInfo)
+      .post("http://localhost:8000/car", newCarInfo)
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
@@ -421,11 +421,11 @@ const [images, setImages] = useState([]);
       </Box>
      
          </Grid>
-         {/* <Grid item xs={12}>
+         <Grid item xs={12}>
             {images.length > 0 && <div>
               {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
               </div>}
-         </Grid> */}
+         </Grid>
             <Grid item xs={12}>
               {/* car description textarea */}
               <TextField
