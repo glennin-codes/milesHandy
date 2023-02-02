@@ -36,15 +36,24 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const [error, setError] = React.useState("");
   const {images,setImages}=React.useState([])
   const onDrop=useCallback ((acceptedFiles,rejectedFiles) =>{
-    if(rejectedFiles && rejectedFiles.length>0){
-      setError(`${rejectedFiles.length >= 2 } ? Images Files are not supported,kindly upload jpeg,jpg and png only!:Image File is not supported,kindly upload jpeg,jpg and png only`);
+    if (rejectedFiles && rejectedFiles.length > 0) {
+      let errorMessage = "";
+      
+      if (rejectedFiles.length === 1) {
+        errorMessage = "Image file is not supported, kindly upload jpeg, jpg, or png only";
+      } else {
+        errorMessage = "Images files are not supported, kindly upload jpeg, jpg, or png only";
+      }
+      
+      setError(errorMessage);
       return;
-    }   
+    }
     // if (acceptedFiles <5 ){
     //   setError(`Please upload at least 5 images`);
     //   return;
     // } 
-     acceptedFiles.forEach(file => {
+   else{
+    acceptedFiles.forEach(file => {
          const reader= new FileReader();
          reader.onload=()=>{
           setImages(prevImages => [...prevImages, reader.result]);
@@ -52,12 +61,12 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
        reader.readAsDataURL(file)
 
      });
-
-
-     
+    }
 
      
-  });
+
+     
+  },[]);
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
