@@ -69,6 +69,10 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
 
      
   },[setImages]);
+ 
+   useEffect(()=>{
+    console.log(images);
+   },[images])
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
