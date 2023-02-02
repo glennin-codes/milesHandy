@@ -34,7 +34,9 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const history = useHistory();
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState("");
-  const {images,setImages}=React.useState([])
+  const {images,setImages}=React.useState([]);
+
+
   const onDrop =useCallback ((acceptedFiles,rejectedFiles) =>{
     if (rejectedFiles && rejectedFiles.length > 0) {
       let errorMessage = "";
@@ -70,7 +72,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: 'image/jpeg,image/jpg,image/png',
+    accept: 'image/*',
   });
   async function handleLogout() {
     setError("");
@@ -336,11 +338,11 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
       </Box>
      
          </Grid>
-         <Grid item xs={12}>
+         {/* <Grid item xs={12}>
             {images.length > 0 && <div>
               {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
               </div>}
-         </Grid>
+         </Grid> */}
             <Grid item xs={12}>
               {/* car description textarea */}
               <TextField
