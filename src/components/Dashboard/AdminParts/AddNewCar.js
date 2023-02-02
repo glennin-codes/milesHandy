@@ -37,7 +37,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const {images,setImages}=useState([]);
 
 
-  const onDrop =useCallback ((acceptedFiles,rejectedFiles) =>{
+  const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
   //   if (rejectedFiles && rejectedFiles.length > 0) {
   //     let errorMessage = "";
       
@@ -70,7 +70,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
      
 
      
-  },[setImages]);
+  },[]);
  
    useEffect(()=>{
     console.log(images);
