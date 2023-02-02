@@ -37,7 +37,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const {images,setImages}=React.useState([])
   const onDrop=useCallback ((acceptedFiles,rejectedFiles) =>{
     if(rejectedFiles && rejectedFiles.length>0){
-      setError(`${rejectedFiles.length}>2 ? Images Files are not supported,kindly upload jpeg,jpg and png only!:Image File is not supported,kindly upload jpeg,jpg and png only`);
+      setError(`${rejectedFiles.length >= 2 } ? Images Files are not supported,kindly upload jpeg,jpg and png only!:Image File is not supported,kindly upload jpeg,jpg and png only`);
       return;
     }   
     // if (acceptedFiles <5 ){
@@ -45,7 +45,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
     //   return;
     // } 
      acceptedFiles.forEach(file => {
-         const reader=new FileReader();
+         const reader= new FileReader();
          reader.onload=()=>{
           setImages(prevImages => [...prevImages, reader.result]);
          } 
@@ -328,7 +328,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
      
          </Grid>
          <Grid item xs={12}>
-            {images.length>0 && <div>
+            {images.length > 0 && <div>
               {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
               </div>}
          </Grid>
