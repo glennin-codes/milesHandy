@@ -195,6 +195,7 @@ const [images, setImages] = useState([]);
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
+        console.error(err)
         //   showSnackbar() // show notification popup containing status
       });
   };
