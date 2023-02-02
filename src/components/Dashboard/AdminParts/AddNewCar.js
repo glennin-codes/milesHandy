@@ -178,8 +178,12 @@ const [images, setImages] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel , images};
+   const headers={
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+   }
     axios
-      .post("http://localhost:8000/car", newCarInfo)
+      .post("http://localhost:8000/car", newCarInfo,{headers})
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
