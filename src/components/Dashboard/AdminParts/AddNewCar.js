@@ -82,7 +82,7 @@ const [images, setImages] = useState([]);
     const newCarInfo = { ...values, carType, fuel , images};
  
     axios
-      .post("/car",{newCarInfo})
+      .post("http://localhost:8000/car",{newCarInfo})
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
@@ -118,6 +118,7 @@ const [images, setImages] = useState([]);
         {/* new car information form */}
         <form onSubmit={handleSubmit}>
           <Grid
+          
             container
             rowSpacing={3.5}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
