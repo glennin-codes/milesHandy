@@ -82,11 +82,11 @@ const [images, setImages] = useState([]);
     const newCarInfo = { ...values, carType, fuel , images};
  
     axios
-      .post("http://localhost:8000/car",newCarInfo)
+      .post("/car",newCarInfo)
       .then(({ data,res }) => {
-        if(res.status===200){
-          setStatus(res.data.message);
-        }
+        // if(res.status===200){
+        //   setStatus(res.data.message);
+        // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
           // showSnackbar()
