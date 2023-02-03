@@ -79,29 +79,24 @@ const [images, setImages] = useState([]);
   // add new car in database
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newCarInfo = { ...values, carType, fuel , images};
-   const headers={
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-   }
+    // const newCarInfo = { ...values, carType, fuel , images};
+ 
     axios
-      .post("/car", newCarInfo,{headers})
+      .post("/car", images)
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
         }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          
-
           // showSnackbar()
           event.target.reset();
         }
-       throw new Error('Failed to upload to Cloudinary');
+      //  throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
-        console.error(err)
+     
         //   showSnackbar() // show notification popup containing status
       });
   };
