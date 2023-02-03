@@ -33,108 +33,11 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const [failed, setFailed] = React.useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
-  const [error, setError] = React.useState("");
-  // const {images,setImages}=useState([]);
-  // const [images,setImages] = useState([]);
-    
-  //how to converte multiple images to base64 in react? 
+  const [error, setError] = React.useState(""); 
 const [images, setImages] = useState([]);
-
-// const formatImage = async() => {
-//   try {
-//     for (let i = 0; i < e.target.files.length; i++) {
-//       const reader = new FileReader();
-//       reader.readAsDataURL(e.target.files[i]);
-//       reader.onload = (readerEvent) => {
-//         images.push(readerEvent.target ? .result);
-//       };
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// <input type="file" multiple onChange={formatImage} />
-
-// const addImage = async() => {
-//   try {
-//     Promise.all(
-//       images.map(
-//         async(file: any) =>
-//         await addDoc(collection(db, "images"), {
-//           image: file,
-//           date: Timestamp.now(),
-//         })
-//       )
-//     );
-
-//     setImages([]);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-
-
-// //Source: https://stackoverflow.com/questions/73092506
-
-
-
-
-
-
-
-
-
-  // const getBase64 = (file) =>
-  //   new Promise((resolve, reject) => {
-  //     console.log(file);
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result);
-  //     reader.onerror = (err) => reject(err);
-  //   });
-
-  // const submitImages = async () => {
-  //   const imageInputs = document.querySelectorAll("input");
-  //   const images = await Promise.all(
-  //     [...imageInputs].map((imageInput) =>
-  //       imageInput?.files?.[0] ? getBase64(imageInput.files[0]) : null
-  //     )
-  //   );
-  //   console.log(images);
-  // };
-
-
-
-
-//Source: https://stackoverflow.com/questions/71964404
-
-
-
-
-
-
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
-  //   if (rejectedFiles && rejectedFiles.length > 0) {
-  //     let errorMessage = "";
-      
-  //     if (rejectedFiles.length === 1) {
-  //       errorMessage = "Image file is not supported, kindly upload jpeg, jpg, or png only";
-  //     } else {
-  //       errorMessage = "Images files are not supported, kindly upload jpeg, jpg, or png only";
-  //     }
-      
-  //     setError(errorMessage);
-  //     return;
-  //   }
-  //   // if (acceptedFiles <5 ){
-  //   //   setError(`Please upload at least 5 images`);
-  //   //   return;
-  //   // } 
-  //  else{
     console.log('accepted',acceptedFiles);
     console.log('rejected',rejectedFiles);
     acceptedFiles.forEach(file => {
@@ -146,7 +49,7 @@ const [images, setImages] = useState([]);
           setImages((prevState)=>[...prevState,binaryStr]);
         };
      });
-  //  }   
+
   },[]);
  
    useEffect(()=>{
@@ -154,8 +57,7 @@ const [images, setImages] = useState([]);
    },[images])
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: 'image/*',
+    onDrop,accept: 'image/*',
   });
   async function handleLogout() {
     setError("");
@@ -183,7 +85,7 @@ const [images, setImages] = useState([]);
       'Accept': 'application/json'
    }
     axios
-      .post("http://localhost:8000/car", newCarInfo,{headers})
+      .post("/car", newCarInfo,{headers})
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
