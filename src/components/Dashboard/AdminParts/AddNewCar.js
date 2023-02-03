@@ -82,7 +82,7 @@ const [images, setImages] = useState([]);
     const newCarInfo = { ...values, carType, fuel , images};
  
     axios
-      .post("http://localhost:8000/car",{newCarInfo})
+      .post("http://localhost:8000/car",newCarInfo)
       .then(({ data,res }) => {
         if(res.status===200){
           setStatus(res.data.message);
@@ -92,11 +92,11 @@ const [images, setImages] = useState([]);
           // showSnackbar()
           event.target.reset();
         }
-      //  throw new Error('Failed to upload to Cloudinary');
+       throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
-     
+         console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
   };
