@@ -91,7 +91,7 @@ const [upload, setUpload] = React.useState("");
         if (data.code === 1) {
           setStatus(`car added succesfully`);
           // setUpload("uploaded succesfully to cloudinary");
-         
+         setImages([]);
           // showSnackbar()
           event.target.reset();
         }
