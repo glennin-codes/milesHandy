@@ -81,8 +81,7 @@ const [images, setImages] = useState([]);
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel };
  
-    axios
-      .post("/car",newCarInfo)
+    axios.post("/car",newCarInfo)
       .then(({ data,res }) => {
         // if(res.status===200){
         //   setStatus(res.data.message);
@@ -99,6 +98,7 @@ const [images, setImages] = useState([]);
         //  console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
+      
   };
   return (
     <Box>
