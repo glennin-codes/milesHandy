@@ -52,8 +52,13 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel };
     axios
-      .post("http://localhost:8000/car", newCarInfo)
+      .post("http://localhost:8000/car", newCarInfo, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then(({ data }) => {
+        console.log("Successful response from the server: ", data);
         if (data.code === 1) {
           setStatus(`car added succesfully`);
           // showSnackbar()
@@ -61,6 +66,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
         }
       })
       .catch((err) => {
+        console.error("Error from the server: ", err);
         setError(`car not added, there was an error`);
         //   showSnackbar() // show notification popup containing status
       });
