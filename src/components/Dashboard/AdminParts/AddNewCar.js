@@ -45,7 +45,7 @@ const [isSubmit,setIsSubmit]=useState(false);
 useEffect(()=>{
   if (uploading) {
     toast.success(uploading);
-    setSend()
+    setIsUpLoading();
 
   }
 },[uploading])
