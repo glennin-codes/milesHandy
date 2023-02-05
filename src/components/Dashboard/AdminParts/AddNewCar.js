@@ -35,6 +35,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState(""); 
 const [images, setImages] = useState([]);
+const [upload, setUpload] = useState("");
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
@@ -78,8 +79,9 @@ const [images, setImages] = useState([]);
   };
   // add new car in database
   const handleSubmit = (event) => {
+     setUpload(`uploading to cloudinary..please wait`)
     event.preventDefault();
-    const newCarInfo = { ...values, carType, fuel };
+    const newCarInfo = { ...values, carType, fuel ,images};
  
     axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
       .then(({ data,res }) => {
@@ -88,6 +90,8 @@ const [images, setImages] = useState([]);
         // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
+          setUpload('');
+          setImages([]);
           // showSnackbar()
           event.target.reset();
         }
@@ -369,6 +373,7 @@ const [images, setImages] = useState([]);
               <Typography>
                 {status && <Alert severity="success">{status}</Alert>}
                 {error && <Alert severity="error">{error}</Alert>}
+                {upload && <Alert severity="succes">{upload}</Alert>}
               </Typography>
             </Grid>
           </Grid>
