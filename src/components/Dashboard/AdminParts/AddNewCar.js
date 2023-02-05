@@ -328,14 +328,15 @@ useEffect(()=>{
         <div style={{ padding: '16px',height:'200px' }} {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p style={{ color: 'green' }}>Drop the files here...</p>
+            <p style={{ color: 'green' }}>Drop the images here...</p>
           ) : (
        
-            <p>Drag 'n' Drop some files here, or click to select files</p>
+            <><p style={{marginBottom:'5.5px'}}>Drag 'n' Drop some images here, or click to select files</p>
+            <p>Drag 'n' Drop some images here, or click to select files</p></>
             
           )}
           <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> <br/>
-             <Icon className="fas fa-image" style={{fontSize: "40px",display:'flex', alignItems:'center',textAlign:'center'}}>
+             <Icon className="fas fa-image" style={{fontSize: "40px",display:'flex', alignItems:'center',textAlign:'center',marginLeft:'50%'}}>
               </Icon>
         </div>
       </Paper>
