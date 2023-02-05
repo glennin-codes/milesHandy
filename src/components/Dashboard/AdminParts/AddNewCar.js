@@ -79,10 +79,10 @@ const [images, setImages] = useState([]);
   // add new car in database
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newCarInfo = { ...values, carType, fuel , images};
+    const newCarInfo = { ...values, carType, fuel };
  
     axios
-      .post("/adding",newCarInfo)
+      .post("/car",newCarInfo)
       .then(({ data,res }) => {
         // if(res.status===200){
         //   setStatus(res.data.message);
