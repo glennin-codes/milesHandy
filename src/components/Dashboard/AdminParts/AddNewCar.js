@@ -52,7 +52,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel };
     axios
-      .post("http://localhost:8000/car", newCarInfo, {
+      .post("https://uploadercloudinary.onrender.com/car", newCarInfo, {
         headers: {
           "Content-Type": "application/json",
         },
