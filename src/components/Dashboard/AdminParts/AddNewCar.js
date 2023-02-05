@@ -36,26 +36,22 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const [error, setError] = React.useState(""); 
 const [images, setImages] = useState([]);
 const [upload, setUpload] = React.useState("");
+const [isSubmit,setIsSubmit]=useState(true)
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
-    console.log('accepted',acceptedFiles);
-    console.log('rejected',rejectedFiles);
     acceptedFiles.forEach(file => {
          const reader =  new FileReader();
           reader.readAsDataURL(file);
          reader.onloadend = () => {
           const binaryStr = reader.result;
-          console.log(binaryStr);
           setImages((prevState)=>[...prevState,binaryStr]);
         };
      });
 
   },[]);
  
-   useEffect(()=>{
-    console.log(images);
-   },[images])
+  
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,accept: 'image/*',
@@ -81,6 +77,12 @@ const [upload, setUpload] = React.useState("");
   const handleSubmit = (event) => {
      
     event.preventDefault();
+    setIsSubmit(true);
+  React.useEffect(() => {
+    if (isSubmit) {
+      window.scrollTo(0, 0);
+    }
+  }, [isSubmit]);
     const newCarInfo = { ...values, carType, fuel ,images};
  
     axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
@@ -90,8 +92,9 @@ const [upload, setUpload] = React.useState("");
         // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          // setUpload("uploaded succesfully to cloudinary");
          setImages([]);
+        setFuel("");
+        setCarType(" ");
           // showSnackbar()
           event.target.reset();
         }
