@@ -20,6 +20,8 @@ import { Link } from "react-router-dom";
 import useAuth from "../AdminParts/../../../others/useAuthContext";
 import { useHistory } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
+import Toast from "../../../utilis/Toast";
+import { toast } from "react-toastify";
 
 // styled component for font awesome icon
 const Icon = styled("i")(({ theme }) => ({
@@ -35,8 +37,18 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState(""); 
 const [images, setImages] = useState([]);
-const [upload, setUpload] = React.useState("");
-const [isSubmit,setIsSubmit]=useState(true)
+const [uploading, setIsUpLoading] = useState();
+const [isSubmit,setIsSubmit]=useState(false);
+
+
+
+useEffect(()=>{
+  if (uploading) {
+    toast.success(uploading);
+    setSend()
+
+  }
+},[uploading])
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
@@ -86,16 +98,14 @@ const [isSubmit,setIsSubmit]=useState(true)
     const newCarInfo = { ...values, carType, fuel ,images};
  
     axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
-      .then(({ data,res }) => {
-        // if(res.status===200){
-        //   setStatus(res.data.message);
-        // }
+      .then(({ data }) => {
+        setIsUpLoading("uploading to database..please  wait");
         if (data.code === 1) {
           setStatus(`car added succesfully`);
+          setIsUpLoading('uploading complete.')
          setImages([]);
         setFuel("");
         setCarType(" ");
-          // showSnackbar()
           event.target.reset();
         }
       //  throw new Error('Failed to upload to Cloudinary');
@@ -109,6 +119,7 @@ const [isSubmit,setIsSubmit]=useState(true)
   };
   return (
     <Box>
+    <Toast/>
       {error && <Alert severity="error">{error}</Alert>}
       {status && <Alert severity="success">{status}</Alert>}
       {failed && <Alert severity="error">{failed}</Alert>}
@@ -216,9 +227,9 @@ const [isSubmit,setIsSubmit]=useState(true)
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            {/* <Grid item xs={12} md={4}>
               {/* car mileage input */}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+             {/* <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                 <Icon className="fas fa-road"></Icon>
                 <TextField
                   fullWidth
@@ -233,7 +244,7 @@ const [isSubmit,setIsSubmit]=useState(true)
                   onChange={handleValueChange("mileage")}
                 />
               </Box>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} md={6}>
               {/* car transmission status */}
               <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -376,13 +387,14 @@ const [isSubmit,setIsSubmit]=useState(true)
               <Typography>
                 {status && <Alert severity="success">{status}</Alert>}
                 {error && <Alert severity="error">{error}</Alert>}
-                {upload && <Alert severity="succes">{upload}</Alert>}
+               
               </Typography>
             </Grid>
           </Grid>
         </form>
       </Box>
     </Box>
+  
   );
 };
 
