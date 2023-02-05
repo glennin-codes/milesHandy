@@ -94,7 +94,7 @@ const [images, setImages] = useState([]);
       //  throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
-        setError(`car not added, there was an error`);
+        setError(`car not added, there was an error,${err}`);
         //  console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
