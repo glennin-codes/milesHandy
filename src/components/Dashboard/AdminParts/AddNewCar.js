@@ -90,7 +90,7 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
-  React.useEffect(() => {
+ useEffect(() => {
     if (isSubmit) {
       window.scrollTo(0, 0);
     }
