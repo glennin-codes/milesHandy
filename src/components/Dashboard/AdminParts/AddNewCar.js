@@ -35,7 +35,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = React.useState(""); 
 const [images, setImages] = useState([]);
-const [upload, setUpload] = useState("");
+const [upload, setUpload] = React.useState("");
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
@@ -99,7 +99,7 @@ const [upload, setUpload] = useState("");
       })
       .catch((err) => {
         setError(`car not added, there was an error,${err}`);
-         console.log(err);
+        //  console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
       
