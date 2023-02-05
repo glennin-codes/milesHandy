@@ -81,7 +81,7 @@ const [images, setImages] = useState([]);
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel };
  
-    axios.post("/car",newCarInfo)
+    axios.post("http://localhost:8000/car",newCarInfo)
       .then(({ data,res }) => {
         // if(res.status===200){
         //   setStatus(res.data.message);
