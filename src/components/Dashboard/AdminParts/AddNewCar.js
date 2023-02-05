@@ -90,8 +90,8 @@ const [upload, setUpload] = useState("");
         // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          setUpload('');
-          setImages([]);
+          setUpload("uploaded succesfully to cloudinary");
+         
           // showSnackbar()
           event.target.reset();
         }
