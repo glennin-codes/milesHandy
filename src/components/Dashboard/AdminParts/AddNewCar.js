@@ -9,13 +9,17 @@ import {
   Select,
   TextField,
   Typography,
+  Paper,
+  imageListClasses
 } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import axios from "axios";
-import React from "react";
+import * as React from 'react';
+import {useCallback,useEffect,useState} from 'react';
 import { Link } from "react-router-dom";
 import useAuth from "../AdminParts/../../../others/useAuthContext";
 import { useHistory } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 
 // styled component for font awesome icon
 const Icon = styled("i")(({ theme }) => ({
@@ -29,7 +33,32 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const [failed, setFailed] = React.useState("");
   const history = useHistory();
   const { currentUser, logout } = useAuth();
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState(""); 
+const [images, setImages] = useState([]);
+
+ 
+  const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
+    console.log('accepted',acceptedFiles);
+    console.log('rejected',rejectedFiles);
+    acceptedFiles.forEach(file => {
+         const reader =  new FileReader();
+          reader.readAsDataURL(file);
+         reader.onloadend = () => {
+          const binaryStr = reader.result;
+          console.log(binaryStr);
+          setImages((prevState)=>[...prevState,binaryStr]);
+        };
+     });
+
+  },[]);
+ 
+   useEffect(()=>{
+    console.log(images);
+   },[images])
+  
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,accept: 'image/*',
+  });
   async function handleLogout() {
     setError("");
     try {
@@ -51,25 +80,25 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel };
-    axios
-      .post("https://uploadercloudinary.onrender.com/car", newCarInfo, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(({ data }) => {
-        console.log("Successful response from the server: ", data);
+ 
+    axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
+      .then(({ data,res }) => {
+        // if(res.status===200){
+        //   setStatus(res.data.message);
+        // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
           // showSnackbar()
           event.target.reset();
         }
+      //  throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
-        console.error("Error from the server: ", err);
-        setError(`car not added, there was an error`);
+        setError(`car not added, there was an error,${err}`);
+         console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
+      
   };
   return (
     <Box>
@@ -89,6 +118,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
         {/* new car information form */}
         <form onSubmit={handleSubmit}>
           <Grid
+          
             container
             rowSpacing={3.5}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
@@ -165,7 +195,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                     <MenuItem value={"Jeep"}>Jeep</MenuItem>
                     <MenuItem value={"BMW"}>BMW</MenuItem>
                     <MenuItem value={"Porsche"}>Porsche</MenuItem>
-                    <MenuItem value={"Mercedes Benz"}>Mercedes Benz</MenuItem>
+                    <MenuItem value={"Honda"}>Honda</MenuItem>
                     <MenuItem value={"Hyundai"}>Hyundai</MenuItem>
                     <MenuItem value={"Mitsubishi"}>Mitsubishi</MenuItem>
                     <MenuItem value={" KIA"}> KIA</MenuItem>
@@ -260,7 +290,45 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
                 />
               </Box>
             </Grid>
-           
+            
+            <Grid item  xs={12}>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+            <Paper
+        style={{
+          cursor: 'pointer',
+          background: 'fafafa',
+          color: '#bdbdbd',
+          border: '1px dashed #ccc',
+          '&:hover': { border: '1px solid #ccc' ,
+         
+        },
+
+        }}
+        // elevation={6}
+        >
+
+        <div style={{ padding: '16px',height:'200px' }} {...getRootProps()}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p style={{ color: 'green' }}>Drop the files here...</p>
+          ) : (
+       
+            <p>Drag 'n' Drop some files here, or click to select files</p>
+            
+          )}
+          <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> <br/>
+             <Icon className="fas fa-image" style={{fontSize: "40px",display:'flex', alignItems:'center',textAlign:'center'}}>
+              </Icon>
+        </div>
+      </Paper>
+      </Box>
+     
+         </Grid>
+         <Grid item xs={12}>
+            {images.length > 0 && <div>
+              {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
+              </div>}
+         </Grid>
             <Grid item xs={12}>
               {/* car description textarea */}
               <TextField
