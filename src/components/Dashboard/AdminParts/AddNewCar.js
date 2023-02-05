@@ -79,7 +79,7 @@ const [upload, setUpload] = React.useState("");
   };
   // add new car in database
   const handleSubmit = (event) => {
-     setUpload(`uploading to cloudinary..please wait`)
+     
     event.preventDefault();
     const newCarInfo = { ...values, carType, fuel ,images};
  
@@ -90,7 +90,7 @@ const [upload, setUpload] = React.useState("");
         // }
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          setUpload("uploaded succesfully to cloudinary");
+          // setUpload("uploaded succesfully to cloudinary");
          
           // showSnackbar()
           event.target.reset();
@@ -98,7 +98,7 @@ const [upload, setUpload] = React.useState("");
       //  throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
-        setError(`car not added, there was an error,${err}`);
+        setError(`car not added, there was an error`);
         //  console.log(err);
         //   showSnackbar() // show notification popup containing status
       });
