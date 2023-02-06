@@ -32,7 +32,7 @@ fetchCars()
           setSuccess("")
 
              alert(`are you sure you want to delete ${carID},this action is irreversible!`)
-   await axios.delete(`http://localhost:8000/car/${carID}`)
+   await axios.delete(`https://uploadercloudinary.onrender.com/${carID}`)
    setSuccess(`success! car with id of ${carID} deleted`)
   
         }
@@ -72,10 +72,10 @@ fetchCars()
            
               <TableCell  sx={{width:"10vw"}}  >
                 <Typography component={Button}
-                disabled={currentUser?.email!=='milesmotorssocialmedia@gmail.com'}
-                onClick={
-                  ()=>deleteCar(carID)
-                }
+                // disabled={currentUser?.email!=='milesmotorssocialmedia@gmail.com'}
+                // onClick={
+                //   ()=>deleteCar(carID)
+                // }
                 >Delete</Typography>
               </TableCell>
            
