@@ -46,7 +46,7 @@ useEffect(()=>{
   }
   if (uploading) {
     toast.success(uploading);
-    setIsUpLoading();
+    // setIsUpLoading();
   }
 
 },[isSubmit,uploading])
