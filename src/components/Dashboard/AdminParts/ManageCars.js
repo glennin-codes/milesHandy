@@ -32,8 +32,12 @@ fetchCars()
           setSuccess("")
 
              alert(`are you sure you want to delete ${carID},this action is irreversible!`)
-   await axios.delete(`https://uploadercloudinary.onrender.com/${carID}`)
-   setSuccess(`success! car with id of ${carID} deleted`)
+   await axios.delete(`https://uploadercloudinary.onrender.com/${carID}`).then(({res})=>{
+        if (res.status===200){
+          setSuccess("car deleted successfully")
+        }
+   })
+   
   
         }
         catch(error){
