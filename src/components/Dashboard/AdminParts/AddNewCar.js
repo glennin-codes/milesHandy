@@ -40,15 +40,16 @@ const [images, setImages] = useState([]);
 const [uploading, setIsUpLoading] = useState();
 const [isSubmit,setIsSubmit]=useState(false);
 
-
-
 useEffect(()=>{
+  if (isSubmit) {
+    window.scrollTo(0, 0);
+  }
   if (uploading) {
     toast.success(uploading);
     setIsUpLoading();
-
   }
-},[uploading])
+
+},[isSubmit,uploading])
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
@@ -90,11 +91,7 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
- useEffect(() => {
-    if (isSubmit) {
-      window.scrollTo(0, 0);
-    }
-  }, [isSubmit]);
+ 
     const newCarInfo = { ...values, carType, fuel ,images};
  
     axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
@@ -112,7 +109,7 @@ useEffect(()=>{
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
-        //  console.log(err);
+       
         //   showSnackbar() // show notification popup containing status
       });
       
