@@ -320,7 +320,7 @@ useEffect(()=>{
         },
 
         }}
-        // elevation={6}
+        elevation={6}
         >
 
         <div style={{ padding: '16px',height:'200px' }} {...getRootProps()}>
