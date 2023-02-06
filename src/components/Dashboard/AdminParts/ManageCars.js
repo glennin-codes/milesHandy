@@ -22,7 +22,7 @@ export default function ManageCars() {
     const[success,setSuccess]=React.useState("")
     useEffect(()=>{
 const fetchCars= async ()=>{
-const {data}=await axios.get("http://localhost:8000/cars/all")
+const {data}=await axios.get("https://uploadercloudinary.onrender.com/all")
 setCars(data)
 }
 fetchCars()
