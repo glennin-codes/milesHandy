@@ -91,12 +91,13 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
+    setIsUpLoading("uploading to database..please  wait");
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
     axios.post("https://uploadercloudinary.onrender.com/car",newCarInfo)
       .then(({ data }) => {
-        setIsUpLoading("uploading to database..please  wait");
+        
         if (data.code === 1) {
           setStatus(`car added succesfully`);
           setIsUpLoading('uploading complete.')
@@ -329,11 +330,12 @@ useEffect(()=>{
           ) : (
        
             <><p style={{marginBottom:'5.5px'}}>Drag 'n' Drop some images here, or click to select files</p>
-            <p>Drag 'n' Drop some images here, or click to select files</p></>
+            <em style={{color:"#FFBF00"}}>Please select at least 5 images </em>
+            <em style={{color:"#FFBF00"}}>Ensure that each image does not exceed 7MB in size</em></>
             
           )}
-          <em>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> <br/>
-             <Icon className="fas fa-image" style={{fontSize: "40px",display:'flex', alignItems:'center',textAlign:'center',marginLeft:'50%'}}>
+          <em style={{color:"#FFBF00"}}>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> 
+             <Icon className="fas fa-image" style={{fontSize: "65px",display:'flex', alignItems:'center',textAlign:'center',marginLeft:'45%',marginTop:"20px"}}>
               </Icon>
         </div>
       </Paper>
