@@ -326,10 +326,10 @@ useEffect(()=>{
         <div style={{ padding: '16px',height:'200px' }} {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p style={{ color: 'green' }}>Drop the images here...</p>
+            <p style={{ color: 'green',fontWeight:'700'}}>Drop the images here...</p>
           ) : (
        
-            <><p style={{marginBottom:'5.5px'}}>Drag 'n' Drop some images here, or click to select files</p>
+            <><p style={{marginBottom:'5.5px',fontWeight:'700',opacity:'none'}}>Drag 'n' Drop some images here, or click to select files</p>
             <em style={{color:"#FFBF00"}}>Please select at least 5 images </em>
             <em style={{color:"#FFBF00"}}>Ensure that each image does not exceed 7MB in size</em></>
             
@@ -383,13 +383,7 @@ useEffect(()=>{
                 Logout
               </Typography>
             </Grid>
-            <Grid item xs={12} sx={{ textAlign: "right" }}>
-              <Typography>
-                {status && <Alert severity="success">{status}</Alert>}
-                {error && <Alert severity="error">{error}</Alert>}
-               
-              </Typography>
-            </Grid>
+            
           </Grid>
         </form>
       </Box>
