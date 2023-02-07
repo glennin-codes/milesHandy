@@ -34,6 +34,7 @@ fetchCars()
         const res = await axios.delete(`https://uploadercloudinary.onrender.com/car/${carID}`);
         if (res.status === 200) {
           setSuccess("Car deleted successfully");
+          window.location.reload();
         }
       } catch (error) {
         console.error(error);
