@@ -72,13 +72,14 @@ useEffect(()=>{
  
 const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   let processedFiles = 0;
-  if (EstablishedAcceptedFiles.length + images.length > 10) {
+  if (numberOfAcceptedFiles + images.length > 10) {
     toast.error("Cannot accept more than 10 files.");
     return;
   }
 
   const numberOfAcceptedFiles = Math.min(acceptedFiles.length, 10 - images.length);
   const EstablishedAcceptedFiles = acceptedFiles.slice(0, numberOfAcceptedFiles);
+  console.log(EstablishedAcceptedFiles);
 
   EstablishedAcceptedFiles.forEach(file => {
     if (processedFiles >= 10) {
