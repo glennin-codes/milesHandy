@@ -54,6 +54,7 @@ fetchCars()
         <TableHead sx={{width:"100vw"}}>
           <TableRow >
             <TableCell sx={{width:"15vw"}}>Car Name</TableCell>
+            <TableCell sx={{width:"15vw"}}>Car IMAGE</TableCell>
             <TableCell sx={{width:"15vw"}} >Unique ID</TableCell>
             <TableCell sx={{width:"10vw"}} >Action</TableCell>
            
@@ -68,6 +69,9 @@ fetchCars()
             >
               <TableCell  sx={{width:"15vw"}} component="th" scope="row">
                 {carName}
+              </TableCell>
+              <TableCell  sx={{width:"15vw"}} component="th" scope="row">
+                {carImg}
               </TableCell>
               <TableCell  sx={{width:"25vw"}} >
                 {carID}
