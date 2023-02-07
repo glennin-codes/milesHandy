@@ -100,7 +100,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,accept:"image/jpeg, image/png" 
+    onDrop,accept:"image/jpeg, image/png, image/jpg" 
   });
   async function handleLogout() {
     setError("");
@@ -119,7 +119,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 2* 60 * 1000;//waiting time to upload
+  const time = 1* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
@@ -153,7 +153,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   };
   return (
     <Box>
-    <Toast time={twoMinutes}/>
+    <Toast time={time}/>
       {error && <Alert severity="error">{error}</Alert>}
       {status && <Alert severity="success">{status}</Alert>}
       {failed && <Alert severity="error">{failed}</Alert>}
