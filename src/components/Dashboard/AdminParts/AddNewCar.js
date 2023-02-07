@@ -40,6 +40,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
 const [images, setImages] = useState([]);
 const [uploading, setIsUpLoading] = useState();
 const [isSubmit,setIsSubmit]=useState(false);
+const [selected,setIsSelected]=useState(0);
 
 
 //delete images
@@ -72,7 +73,9 @@ useEffect(()=>{
  
 const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   let processedFiles = 0;
-  if (numberOfAcceptedFiles + images.length > 10) {
+ const count=acceptedFiles+images.length
+  setIsSelected(prevCount=> prevCount + count)
+  if (selected > 10) {
     toast.error("Cannot accept more than 10 files.");
     return;
   }
