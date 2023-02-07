@@ -70,22 +70,33 @@ useEffect(()=>{
 },[isSubmit,uploading,error,status])
 
  
-  const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
-    acceptedFiles.forEach(file => {
-         const reader =  new FileReader();
-          reader.readAsDataURL(file);
-         reader.onloadend = () => {
-          const binaryStr = reader.result;
-          setImages((prevState)=>[...prevState,binaryStr]);
-        };
-     });
+const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
+  if (acceptedFiles.length + images.length > 10) {
+    toast.error("Cannot accept more than 10 files.");
+    return;
+  }
 
-  },[]);
+  acceptedFiles = acceptedFiles.slice(0, 10 - images.length);
+
+  acceptedFiles.forEach(file => {
+    if (file.size > 5.5 * 1024 * 1024) {
+      toast.error(`File ${file.name} is larger than 5.5 MB and cannot be processed.`);
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      const binaryStr = reader.result;
+      setImages(prevState => [...prevState, binaryStr]);
+    };
+  });
+}, []);
  
   
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,accept: 'image/*',
+    onDrop,accept:"image/jpeg, image/png" 
   });
   async function handleLogout() {
     setError("");
