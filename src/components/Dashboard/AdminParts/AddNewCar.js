@@ -76,8 +76,8 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     return;
   }
 
-  const EstablishedAcceptedFiles = acceptedFiles.slice(0, 10 - images.length);
-  console.log( EstablishedAcceptedFiles);
+  const numberOfAcceptedFiles = Math.min(acceptedFiles.length, 10 - images.length);
+  const EstablishedAcceptedFiles = acceptedFiles.slice(0, numberOfAcceptedFiles);
 
   EstablishedAcceptedFiles.forEach(file => {
     if (!file.type.startsWith("image/jpeg") && !file.type.startsWith("image/png") && !file.type.startsWith("image/jpg")) {
