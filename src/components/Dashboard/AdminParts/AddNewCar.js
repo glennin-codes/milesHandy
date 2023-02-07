@@ -101,7 +101,7 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 12* 60 * 1000;//waiting time to upload
+  const twoMinutes = 6* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
@@ -116,7 +116,7 @@ useEffect(()=>{
         
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          setIsUpLoading('uploading complete.')
+         
          setImages([]);
         setFuel("");
         setCarType(" ");
