@@ -54,7 +54,7 @@ useEffect(()=>{
   }
   if (uploading) {
    
-    toast.loading(uploading)
+    toast.loading("uploading to database..wait for about a minute please")
     setIsUpLoading();
   }
   if(!uploading){
@@ -111,7 +111,7 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
-    setIsUpLoading("uploading to database..please  wait for about a minute please");
+    setIsUpLoading(true);
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
