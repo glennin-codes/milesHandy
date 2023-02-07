@@ -53,20 +53,19 @@ useEffect(()=>{
     window.scrollTo(0, 0);
   }
   if (uploading) {
-   
-    toast.loading("uploading to database..wait for about a minute please")
+    toast.loading();
     setIsUpLoading();
   }
-  if(!uploading){
+  
+  if (status) {
     toast.dismiss();
+    toast.success(status);
+    setStatus();
   }
   if(error){
     toast.error(error)
   }
-  if(status){
-    toast.success(status)
-    setStatus();
-  }
+
 
 },[isSubmit,uploading,error,status])
 
@@ -111,7 +110,7 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
-    setIsUpLoading(true);
+    setIsUpLoading("Uploading to database.. wait for about a minute please");
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
@@ -120,7 +119,7 @@ useEffect(()=>{
         
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          setIsUpLoading(false)
+         
          setImages([]);
         setFuel("");
         setCarType(" ");
