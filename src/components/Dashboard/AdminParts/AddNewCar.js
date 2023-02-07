@@ -120,7 +120,7 @@ useEffect(()=>{
         
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-          
+          setIsUpLoading(false)
          setImages([]);
         setFuel("");
         setCarType(" ");
