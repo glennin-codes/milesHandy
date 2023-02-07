@@ -20,13 +20,14 @@ export default function ManageCars() {
   const {currentUser}=useAuth()
     const [cars,setCars]=useState([])
     const[success,setSuccess]=React.useState("")
+    const [refresh, setRefresh] = useState(false);
     useEffect(()=>{
 const fetchCars= async ()=>{
 const {data}=await axios.get("https://uploadercloudinary.onrender.com/cars/all")
 setCars(data)
 }
 fetchCars()
-    },[])
+    },[refresh])
     const deleteCar = async (carID) => {
       try {
         setSuccess("");
@@ -34,7 +35,8 @@ fetchCars()
         const res = await axios.delete(`https://uploadercloudinary.onrender.com/car/${carID}`);
         if (res.status === 200) {
           setSuccess("Car deleted successfully");
-          window.location.reload();
+          setRefresh(prevState => !prevState);
+          
         }
       } catch (error) {
         console.error(error);
