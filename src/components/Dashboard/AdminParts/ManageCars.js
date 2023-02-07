@@ -27,25 +27,25 @@ setCars(data)
 }
 fetchCars()
     },[])
-    const deleteCar= async (carID)=>{
-        try{
-          setSuccess("")
-
-             alert(`are you sure you want to delete ${carID},this action is irreversible!`)
-   await axios.delete(`https://uploadercloudinary.onrender.com/${carID}`).then(({res})=>{
-        if (res.status===200){
-          setSuccess("car deleted successfully")
+    const deleteCar = async (carID) => {
+      try {
+        setSuccess("");
+        alert(`Are you sure you want to delete ${carID}? This action is irreversible!`);
+        const res = await axios.delete(`https://uploadercloudinary.onrender.com/car/${carID}`);
+        if (res.status === 200) {
+          setSuccess("Car deleted successfully");
         }
-   })
-   
-  
+      } catch (error) {
+        console.error(error);
+        if (error.response && error.response.status === 404) {
+          alert("Car not found");
+        
+        } else {
+          alert("There was an error");
+         
         }
-        catch(error){
-        //   alert(`there was an error`)
-            console.error(error)
-            // return null
-        }
-    }
+      }
+    };
     
   return (
     <TableContainer component={Paper}>
