@@ -48,10 +48,10 @@ const Contact = () => {
       }
     );
   };
-
+  
   return (
     <>
-    <Toast/>
+    <Toast time={3000} />
     <Box sx={{ display: "flex", justifyContent: { xs: "center" } }}>
       <Box
         sx={{

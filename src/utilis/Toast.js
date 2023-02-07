@@ -1,11 +1,11 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 
-export default function Toast() {
+export default function Toast(time) {
   return (
     <ToastContainer
       position="top-right"
-      outoClose={3000}
+      outoClose={time}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick

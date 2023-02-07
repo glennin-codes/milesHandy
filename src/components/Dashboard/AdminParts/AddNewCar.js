@@ -86,12 +86,13 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
+  const twoMinutes = 2 * 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
     event.preventDefault();
     setIsSubmit(true);
-    setIsUpLoading("uploading to database..please  wait");
+    setIsUpLoading("uploading to database..please  wait for about 2mnts please");
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
@@ -117,7 +118,7 @@ useEffect(()=>{
   };
   return (
     <Box>
-    <Toast/>
+    <Toast time={twoMinutes}/>
       {error && <Alert severity="error">{error}</Alert>}
       {status && <Alert severity="success">{status}</Alert>}
       {failed && <Alert severity="error">{failed}</Alert>}
@@ -330,7 +331,7 @@ useEffect(()=>{
           ) : (
        
             <><p style={{marginBottom:'5.5px',fontWeight:'700',opacity:'none'}}>Drag 'n' Drop some images here, or click to select files</p>
-            <em style={{color:"#FFBF00"}}>Please select at least 5 images </em>
+            <em style={{color:"#FFBF00"}}>Please select at least 5 images but a muximum of 10</em>
             <em style={{color:"#FFBF00"}}>Ensure that each image does not exceed 7MB in size</em></>
             
           )}
@@ -365,9 +366,9 @@ useEffect(()=>{
               <Button
                 type="submit"
                 variant="outlined"
-                // disabled={
-                //   currentUser?.email !== "milesmotorssocialmedia@gmail.com"
-                // } //disbling add to database
+                disabled={
+                  currentUser?.email !== "milesmotorssocialmedia@gmail.com" || !isSubmit
+   } //disbling add to database
               >
                 Add to Database
               </Button>
