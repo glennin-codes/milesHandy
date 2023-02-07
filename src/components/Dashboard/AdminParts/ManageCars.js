@@ -41,9 +41,9 @@ fetchCars()
   
         }
         catch(error){
-          alert(`there was an error`)
+        //   alert(`there was an error`)
             console.error(error)
-            return null
+            // return null
         }
     }
     
