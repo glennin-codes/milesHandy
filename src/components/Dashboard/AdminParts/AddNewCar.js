@@ -40,6 +40,13 @@ const [images, setImages] = useState([]);
 const [uploading, setIsUpLoading] = useState();
 const [isSubmit,setIsSubmit]=useState(false);
 
+
+//delete images
+const deleteImage = (index) => {
+  setImages((prevState) => prevState.filter((_, i) => i !== index));
+};
+
+
 useEffect(()=>{
   if (isSubmit) {
     window.scrollTo(0, 0);
@@ -345,7 +352,12 @@ useEffect(()=>{
          </Grid>
          <Grid item xs={12}>
             {images.length > 0 && <div>
-              {images.map((image,index)=>  <img src={image} key={index} alt="" style={{height:'50px',width:'50px',background:'#faebd7'}} ></img>)}
+              {images.map((image,index)=>  <>
+               <img src={image} key={index} alt="" style={{height:'50px',borderRadius:"2px",width:'50px',background:'#faebd7',marginRight:"5px",objectFit:"contain"}} />
+               <span class="material-icons" style="color: rgb(255, 0, 0);"  onClick={() => deleteImage(index)}> delete_forever </span>
+                {/* <button>Delete</button> */}
+                </>
+                )}
               </div>}
          </Grid>
             <Grid item xs={12}>
