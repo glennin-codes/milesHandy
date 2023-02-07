@@ -62,6 +62,7 @@ useEffect(()=>{
   }
   if(status){
     toast.success(status)
+    setStatus();
   }
 
 },[isSubmit,uploading,error,status])
@@ -101,7 +102,7 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 2* 60 * 1000;//waiting time to upload
+  const twoMinutes = 1* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
@@ -116,7 +117,6 @@ useEffect(()=>{
         
         if (data.code === 1) {
           setStatus(`car added succesfully`);
-         
          setImages([]);
         setFuel("");
         setCarType(" ");
