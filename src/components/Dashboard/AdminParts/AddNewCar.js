@@ -94,12 +94,12 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 2 * 60 * 1000;//waiting time to upload
+  const twoMinutes = 10* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
     event.preventDefault();
-    setIsSubmit(true);
+    setIsSubmit(false);
     setIsUpLoading("uploading to database..please  wait for about 2mnts please");
  
     const newCarInfo = { ...values, carType, fuel ,images};
@@ -113,6 +113,7 @@ useEffect(()=>{
          setImages([]);
         setFuel("");
         setCarType(" ");
+        setIsSubmit(true);
           event.target.reset();
         }
       //  throw new Error('Failed to upload to Cloudinary');
