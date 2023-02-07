@@ -79,6 +79,10 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   acceptedFiles = acceptedFiles.slice(0, 10 - images.length);
 
   acceptedFiles.forEach(file => {
+    if (!file.type.startsWith("image/jpeg") && !file.type.startsWith("image/png") && !file.type.startsWith("image/jpg")) {
+      toast.error(`File ${file.name} has an unsupported format and cannot be processed.`);
+      return;
+    }
     if (file.size > 5.5 * 1024 * 1024) {
       toast.error(`File ${file.name} is larger than 5.5 MB and cannot be processed.`);
       return;
