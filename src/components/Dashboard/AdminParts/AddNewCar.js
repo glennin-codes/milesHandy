@@ -53,11 +53,18 @@ useEffect(()=>{
     window.scrollTo(0, 0);
   }
   if (uploading) {
-    toast.success(uploading);
-    // setIsUpLoading();
+   
+    toast.loading(uploading)
+    setIsUpLoading();
+  }
+  if(error){
+    toast.error(error)
+  }
+  if(status){
+    toast.success(status)
   }
 
-},[isSubmit,uploading])
+},[isSubmit,uploading,error])
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
@@ -94,13 +101,13 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 10* 60 * 1000;//waiting time to upload
+  const twoMinutes = 12* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
     event.preventDefault();
-    setIsSubmit(false);
-    setIsUpLoading("uploading to database..please  wait for about 2mnts please");
+    setIsSubmit(true);
+    setIsUpLoading("uploading to database..please  wait for about 2 minutes please");
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
@@ -113,13 +120,14 @@ useEffect(()=>{
          setImages([]);
         setFuel("");
         setCarType(" ");
-        setIsSubmit(true);
+        setIsSubmit(false);
           event.target.reset();
         }
       //  throw new Error('Failed to upload to Cloudinary');
       })
       .catch((err) => {
         setError(`car not added, there was an error`);
+      
        
         //   showSnackbar() // show notification popup containing status
       });
