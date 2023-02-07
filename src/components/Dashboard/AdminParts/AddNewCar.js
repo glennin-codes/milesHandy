@@ -75,6 +75,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   let processedFiles = 0;
  const count=acceptedFiles+images.length
   setIsSelected(prevCount=> prevCount + count)
+  console.log(selected);
   if (selected > 10) {
     toast.error("Cannot accept more than 10 files.");
     return;
