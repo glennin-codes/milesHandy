@@ -108,7 +108,7 @@ useEffect(()=>{
      
     event.preventDefault();
     setIsSubmit(true);
-    setIsUpLoading("uploading to database..please  wait for about 2 minutes please");
+    setIsUpLoading("uploading to database..please  wait for about a minute please");
  
     const newCarInfo = { ...values, carType, fuel ,images};
  
