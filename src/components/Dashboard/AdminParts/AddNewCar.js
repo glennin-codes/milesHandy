@@ -64,7 +64,7 @@ useEffect(()=>{
     toast.success(status)
   }
 
-},[isSubmit,uploading,error])
+},[isSubmit,uploading,error,status])
 
  
   const onDrop = useCallback ((acceptedFiles,rejectedFiles) =>{
