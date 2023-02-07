@@ -71,7 +71,8 @@ useEffect(()=>{
 
  
 const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-  if (acceptedFiles.length + images.length > 10) {
+  let processedFiles = 0;
+  if (processedFiles + images.length > 10) {
     toast.error("Cannot accept more than 10 files.");
     return;
   }
@@ -80,6 +81,11 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   const EstablishedAcceptedFiles = acceptedFiles.slice(0, numberOfAcceptedFiles);
 
   EstablishedAcceptedFiles.forEach(file => {
+    if (processedFiles >= 10) {
+      toast.error("Only 10 files can be processed at a time.");
+      return;
+    }
+    processedFiles++;
     if (!file.type.startsWith("image/jpeg") && !file.type.startsWith("image/png") && !file.type.startsWith("image/jpg")) {
       toast.error(`File ${file.name} has an unsupported format and cannot be processed.`);
       return;
