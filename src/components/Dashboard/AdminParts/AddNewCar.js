@@ -105,7 +105,7 @@ useEffect(()=>{
   const handleValueChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  const twoMinutes = 0.2* 60 * 1000;//waiting time to upload
+  const twoMinutes = 0.5* 60 * 1000;//waiting time to upload
   // add new car in database
   const handleSubmit = (event) => {
      
