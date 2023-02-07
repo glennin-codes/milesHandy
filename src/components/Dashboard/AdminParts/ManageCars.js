@@ -72,7 +72,7 @@ fetchCars()
                 {carName}
               </TableCell>
               <TableCell  sx={{width:"15vw"}} component="th" scope="row">
-                {carImg}
+               <img src= {carImg} alt={''} style={{height:'100px',width:"100px"}}/>
               </TableCell>
               <TableCell  sx={{width:"25vw"}} >
                 {carID}
