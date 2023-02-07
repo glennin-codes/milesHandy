@@ -72,7 +72,7 @@ useEffect(()=>{
  
 const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   let processedFiles = 0;
-  if (processedFiles + images.length > 10) {
+  if (EstablishedAcceptedFiles.length + images.length > 10) {
     toast.error("Cannot accept more than 10 files.");
     return;
   }
@@ -107,7 +107,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,accept:"image/jpeg, image/png, image/jpg" 
+    onDrop
   });
   async function handleLogout() {
     setError("");
