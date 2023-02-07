@@ -379,7 +379,7 @@ useEffect(()=>{
                 type="submit"
                 variant="outlined"
                 disabled={
-                  currentUser?.email !== "ayiendaglen@gmail.com" || !isSubmit
+                  currentUser?.email !== "ayiendaglen@gmail.com" || isSubmit
    } //disbling add to database //milesmotorssocialmedia@gmail.com
               >
                 Add to Database
