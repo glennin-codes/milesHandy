@@ -57,6 +57,9 @@ useEffect(()=>{
     toast.loading(uploading)
     setIsUpLoading();
   }
+  if(!uploading){
+    toast.dismiss();
+  }
   if(error){
     toast.error(error)
   }
@@ -117,6 +120,7 @@ useEffect(()=>{
         
         if (data.code === 1) {
           setStatus(`car added succesfully`);
+          
          setImages([]);
         setFuel("");
         setCarType(" ");
