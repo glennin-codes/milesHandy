@@ -12,6 +12,7 @@ import {
   Paper,
   imageListClasses
 } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete'
 import { Box, styled } from "@mui/system";
 import axios from "axios";
 import * as React from 'react';
@@ -354,8 +355,7 @@ useEffect(()=>{
             {images.length > 0 && <div>
               {images.map((image,index)=>  <>
                <img src={image} key={index} alt="" style={{height:'50px',borderRadius:"2px",width:'50px',background:'#faebd7',marginRight:"5px",objectFit:"contain"}} />
-               <span class="material-icons" style="color: rgb(255, 0, 0);"  onClick={() => deleteImage(index)}> delete_forever </span>
-                {/* <button>Delete</button> */}
+               <DeleteIcon  style={{color: "rgb(255, 0, 0)"}}  onClick={() => deleteImage(index)}/> 
                 </>
                 )}
               </div>}
