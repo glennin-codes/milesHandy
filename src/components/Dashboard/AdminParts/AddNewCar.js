@@ -76,10 +76,10 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     return;
   }
 
-  acceptedFiles = acceptedFiles.slice(0, 10 - images.length);
-  console.log(acceptedFiles);
+  const EstablishedAcceptedFiles = acceptedFiles.slice(0, 10 - images.length);
+  console.log( EstablishedAcceptedFiles);
 
-  acceptedFiles.forEach(file => {
+  EstablishedAcceptedFiles.forEach(file => {
     if (!file.type.startsWith("image/jpeg") && !file.type.startsWith("image/png") && !file.type.startsWith("image/jpg")) {
       toast.error(`File ${file.name} has an unsupported format and cannot be processed.`);
       return;
