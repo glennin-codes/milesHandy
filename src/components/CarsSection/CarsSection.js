@@ -19,7 +19,7 @@ const {type}= useSelector((state)=>state.type)
     useEffect(() => {
          const FetchCars = async () => {
             
-        const {data} =  await axios.get(`https://milesbackend.onrender.com/cars/${dataAmount ? dataAmount : 'all'}`,{
+        const {data} =  await axios.get(`https://uploadercloudinary.onrender.com/cars/${dataAmount ? dataAmount : 'all'}`,{
             params:{
                 name:search,
                 brand:type

@@ -27,7 +27,7 @@ export default function ImageCarousel() {
 
   useEffect(() => {
     axios
-      .get(`https://milesbackend.onrender.com/car/${carID}`)
+      .get(`https://uploadercloudinary.onrender.com/car/${carID}`)
       .then(({ data }) => setCarImages(data.data))
       .catch((err) => console.log(err));
   }, [carID]);
