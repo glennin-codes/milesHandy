@@ -379,14 +379,15 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
             <p style={{ color: 'green',fontWeight:'700'}}>Drop the images here...</p>
           ) : (
        
-            <><p style={{marginBottom:'5.5px',fontWeight:'700',opacity:'none'}}>Drag 'n' Drop some images here, or click to select files</p>
-            <em style={{color:"#FFBF00",marginBottom:"5.5px"}}>Please select at least 5 images but a muximum of 10</em>
-            <em style={{color:"#FFBF00",marginBottom:"5.5px"}}>Ensure that each image does not exceed 6.5MB in size</em></>
-            
-          )}
-          <em style={{color:"#FFBF00"}}>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> 
+            <><p style={{marginBottom:'5px',fontWeight:'700',opacity:'none'}}>Drag 'n' Drop some images here, or click to select files</p>
+            <em style={{color:"#FFBF00",marginTop:"5px"}}>Please select at least 5 images but a muximum of 10</em>
+            <em style={{color:"#FFBF00",marginTop:"5px"}}>Ensure that each image does not exceed 6.5MB in size</em>
+             <em style={{color:"rgb(255, 0, 0)"}}>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> 
              <Icon className="fas fa-image" style={{fontSize: "65px",display:'flex', alignItems:'center',textAlign:'center',marginLeft:'45%',marginTop:"20px"}}>
               </Icon>
+              </>
+          )}
+         
         </div>
       </Paper>
       </Box>
