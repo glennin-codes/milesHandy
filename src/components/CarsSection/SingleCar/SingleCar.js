@@ -54,13 +54,13 @@ const SingleCar = ({ carInfo}) => {
         <Box sx={{ display: "flex", flexDirection: "column"}}>
         <Card sx={{ width: 300 }}>
           <CardActionArea>
-            <div style={{minHeight:300}}>
+            <div style={{Height:350}}>
             < LazyLoadImage
               // component="img"
               // height=200
               // width=100%
               // sx={{ objectFit: "fill"}}
-              style={{height:200,
+              style={{height:250,
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}

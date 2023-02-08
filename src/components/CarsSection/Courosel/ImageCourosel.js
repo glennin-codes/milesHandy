@@ -124,7 +124,7 @@ export default function ImageCarousel() {
         {images.map((item) => (
           <div key={item.id} className="photo--container">
             {" "}
-            <img src={item.src} alt={item.alt} className="car--photo" />
+            <img src={item.src} alt={item.alt} className="car--photo" height={400} width={400} />
           </div>
         ))}
       </Slider>

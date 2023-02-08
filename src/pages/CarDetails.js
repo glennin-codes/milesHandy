@@ -75,7 +75,7 @@ const CarDetails = () => {
           <Box
             sx={{
               height: "500px",
-              background: "#00000011",
+              // background: "#00000011",
               display: "flex",
               justifyContent: "center",
               borderRadius: "10px",
