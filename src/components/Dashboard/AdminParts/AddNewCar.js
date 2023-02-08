@@ -107,7 +107,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
       setImages(prevState => [...prevState, binaryStr]);
     };
   });
-}, []);
+}, [selected,images]);
  
   
   
