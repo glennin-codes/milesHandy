@@ -380,8 +380,8 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
           ) : (
        
             <><p style={{marginBottom:'5.5px',fontWeight:'700',opacity:'none'}}>Drag 'n' Drop some images here, or click to select files</p>
-            <em style={{color:"#FFBF00"}}>Please select at least 5 images but a muximum of 10</em>
-            <em style={{color:"#FFBF00"}}>Ensure that each image does not exceed 7MB in size</em></>
+            <em style={{color:"#FFBF00",marginBottom:"5.5px"}}>Please select at least 5 images but a muximum of 10</em>
+            <em style={{color:"#FFBF00",marginBottom:"5.5px"}}>Ensure that each image does not exceed 6.5MB in size</em></>
             
           )}
           <em style={{color:"#FFBF00"}}>(images with *.jpeg, *.png, *.jpg extension will be accepted)</em> 
@@ -420,7 +420,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
                 type="submit"
                 variant="outlined"
                 disabled={
-                  currentUser?.email !== "ayiendaglen@gmail.com" || isSubmit
+                  currentUser?.email !== "ayiendaglen@gmail.com" || currentUser?.email !== "ayiendaglen@gmail.com" || isSubmit
    } //disbling add to database //milesmotorssocialmedia@gmail.com
               >
                 Add to Database
