@@ -75,7 +75,7 @@ useEffect(()=>{
 
 const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
   let processedFiles = 0;
-  const count=acceptedFiles.length + images.length;
+  const count=acceptedFiles.length ;
   setIsSelected(prevCount=> prevCount + count);
   console.log(selected);
   if (selected > 10) {
