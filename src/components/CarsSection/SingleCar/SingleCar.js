@@ -76,7 +76,7 @@ const SingleCar = ({ carInfo}) => {
                Ksh {numberWithCommas(price)}
               </Typography>
               <Typography
-                variant="h4"
+                variant="h5"
                 color="text.secondary"
                 fontWeight={700}
                 textSize='1.5rem'
