@@ -97,8 +97,8 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
       toast.error(`File ${file.name} has an unsupported format and cannot be processed.`);
       return;
     }
-    if (file.size > 5.5 * 1024 * 1024) {
-      toast.error(`File ${file.name} is larger than 5.5 MB and cannot be processed.`);
+    if (file.size > 6.5 * 1024 * 1024) {
+      toast.error(`File ${file.name} is larger than 6.5 MB and cannot be processed.`);
       return;
     }
 
