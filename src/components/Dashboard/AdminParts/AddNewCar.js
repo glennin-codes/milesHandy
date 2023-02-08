@@ -40,7 +40,7 @@ const AddNewCar = ({ setProcessStatus, showSnackbar }) => {
 const [images, setImages] = useState([]);
 const [uploading, setIsUpLoading] = useState();
 const [isSubmit,setIsSubmit]=useState(false);
-const [selected,setIsSelected]=useState(0);
+const [selected,setIsSelected]=useState(-1);
 
 
 //delete images
