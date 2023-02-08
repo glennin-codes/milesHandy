@@ -85,7 +85,7 @@ const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
 
   const numberOfAcceptedFiles = Math.min(acceptedFiles.length, 10 - images.length);
   const EstablishedAcceptedFiles = acceptedFiles.slice(0, numberOfAcceptedFiles);
-  console.log(EstablishedAcceptedFiles);
+
 
   EstablishedAcceptedFiles.forEach(file => {
     if (processedFiles >= 10) {
