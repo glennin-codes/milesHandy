@@ -60,10 +60,12 @@ const SingleCar = ({ carInfo}) => {
               // height=200
               // width=100%
               // sx={{ objectFit: "fill"}}
-              style={{height:250,
+              style={{height:250, 
+                borderRadius:"5px",
                 width:'100%',objectFit: "fill"}}
                 effect="blur"
                 placeholderSrc={carImg}
+              
               src={carImg}
               alt="car"
              
@@ -74,7 +76,7 @@ const SingleCar = ({ carInfo}) => {
                Ksh {numberWithCommas(price)}
               </Typography>
               <Typography
-                variant="body2"
+                variant="h4"
                 color="text.secondary"
                 fontWeight={700}
                 textSize='1.5rem'

@@ -40,7 +40,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://milesbackend.onrender.com/car/${carID}`)
+      .get(`https://uploadercloudinary.onrender.com/car/${carID}`)
       .then(({ data }) => setCarDetails(data.data))
       .catch((err) => console.log(err));
   }, [carID]);
